@@ -1,10 +1,13 @@
 document.getElementById("fileInput").addEventListener("change", function (e) {
     const file = e.target.files[0]
     if (!file) return
+
     const reader = new FileReader()
+
     reader.onload = function (event) {
         document.getElementById("input").value = event.target.result
     }
+
     reader.readAsText(file)
 })
 
@@ -14,37 +17,59 @@ function clearInput() {
     document.getElementById("output").value = ""
 }
 
+
 function copyOutput() {
     const text = document.getElementById("output").value
     navigator.clipboard.writeText(text)
 }
 
+
 function download() {
+
     const text = document.getElementById("output").value
+
     const blob = new Blob([text], { type: "application/json" })
+
     const a = document.createElement("a")
+
     a.href = URL.createObjectURL(blob)
+
     a.download = "result.json"
+
     a.click()
 }
 
+
+
 function detectDelimiter(line) {
 
-    const candidates = [",", ";", "\t", " "]
+    const candidates = [
+        { name: ",", regex: /,/g },
+        { name: ";", regex: /;/g },
+        { name: "\t", regex: /\t/g },
+        { name: "space", regex: /\s+/g }
+    ]
 
     let best = ","
     let max = 0
 
-    candidates.forEach(d => {
-        const count = line.split(d).length
+    candidates.forEach(c => {
+
+        const matches = line.match(c.regex)
+
+        const count = matches ? matches.length : 0
+
         if (count > max) {
             max = count
-            best = d
+            best = c.name
         }
+
     })
 
     return best
 }
+
+
 
 function parseCSV(text) {
 
@@ -53,11 +78,14 @@ function parseCSV(text) {
         .split(/\r?\n/)
         .filter(line => line.trim() !== "")
 
+
     let delimiter = document.getElementById("delimiter").value
+
 
     if (delimiter === "auto") {
         delimiter = detectDelimiter(lines[0])
     }
+
 
     if (delimiter === "space") {
         return lines.map(line =>
@@ -65,20 +93,27 @@ function parseCSV(text) {
         )
     }
 
-    if (delimiter === "\\t") {
-        delimiter = "\t"
+
+    if (delimiter === "\\t" || delimiter === "\t") {
+        return lines.map(line =>
+            line.split(/\t/).map(v => v.trim())
+        )
     }
 
-    const rows = lines.map(line =>
+
+    return lines.map(line =>
         line.split(delimiter).map(v => v.trim())
     )
 
-    return rows
 }
+
+
 
 function csvToMarkdown() {
 
     const text = document.getElementById("input").value
+
+    if (!text) return
 
     const rows = parseCSV(text)
 
@@ -87,6 +122,7 @@ function csvToMarkdown() {
     let md = ""
 
     md += "| " + headers.join(" | ") + " |\n"
+
     md += "| " + headers.map(() => "---").join(" | ") + " |\n"
 
     rows.slice(1).forEach(row => {
@@ -94,7 +130,10 @@ function csvToMarkdown() {
     })
 
     document.getElementById("output").value = md
+
 }
+
+
 
 function convert() {
 
@@ -108,17 +147,17 @@ function convert() {
 
     const result = rows.slice(1).map(row => {
 
-        let obj = {}
+        const obj = {}
 
         headers.forEach((h, i) => {
             obj[h] = row[i] ?? ""
         })
 
         return obj
+
     })
 
     document.getElementById("output").value =
         JSON.stringify(result, null, 2)
 
 }
-
