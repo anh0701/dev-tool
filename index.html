@@ -20,25 +20,35 @@
         </div>
         <div class="section">
             <b>INPUT</b>
-            <textarea id="input" placeholder="Paste csv here"></textarea>
+            <textarea id="input" placeholder="Paste here"></textarea>
         </div>
-        <div class="section">
-            <label>Delimiter:</label>
-            <select id="delimiter">
-                <option value="auto">Auto Detect</option>
-                <option value=",">Comma (,)</option>
-                <option value=";">Semicolon (;)</option>
-                <option value="\t">Tab</option>
-                <option value="space">Space</option>
-            </select>
-        </div>
-        <div class="section">
-            <button onclick="convert()">CSV → JSON</button>
-            <button onclick="csvToMarkdown()">CSV → Markdown</button>
+        <div class="section tools">
+            
+            <div class="group">
+                <span class="group-title">CSV</span>
+                <label>Delimiter:</label>
+                <select id="delimiter">
+                    <option value="auto">Auto Detect</option>
+                    <option value=",">Comma (,)</option>
+                    <option value=";">Semicolon (;)</option>
+                    <option value="\t">Tab</option>
+                    <option value="space">Space</option>
+                </select>
+                <button onclick="convert()">CSV → JSON</button>
+                <button onclick="csvToMarkdown()">CSV → Markdown</button>
+            </div>
+
+            <div class="group">
+                <span class="group-title">JSON</span>
+                <button onclick="jsonToString()">JSON → String</button>
+                <button onclick="jsonPretty()">JSON → Pretty</button>
+                <button onclick="stringToJson()">String → JSON</button>
+            </div>
+
         </div>
         <div class="section">
             <b>OUTPUT</b>
-            <textarea id="output"></textarea>
+            <textarea id="output" readonly></textarea>
         </div>
         <div class="section">
             <button onclick="copyOutput()">Copy</button>

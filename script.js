@@ -161,3 +161,42 @@ function convert() {
         JSON.stringify(result, null, 2)
 
 }
+
+
+function jsonToString() {
+    const input = document.getElementById("input").value
+
+    try {
+        const obj = JSON.parse(input)
+        const str = JSON.stringify(obj)
+        document.getElementById("output").value = JSON.stringify(str)
+    } catch (e) {
+        alert("Invalid JSON")
+    }
+}
+
+function jsonPretty() {
+    const input = document.getElementById("input").value
+
+    try {
+        const obj = JSON.parse(input)
+        document.getElementById("output").value =
+            JSON.stringify(obj, null, 2)
+    } catch {
+        alert("Invalid JSON")
+    }
+}
+
+function stringToJson() {
+    const input = document.getElementById("input").value
+
+    try {
+        const str = JSON.parse(input)
+        const obj = JSON.parse(str)
+
+        document.getElementById("output").value =
+            JSON.stringify(obj, null, 2)
+    } catch {
+        alert("Invalid JSON String")
+    }
+}

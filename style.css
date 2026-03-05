@@ -36,6 +36,7 @@ button {
     background-color: aqua;
     border-radius: 10px;
     border: none;
+    margin-bottom: 2%;
 }
 
 .section {
@@ -60,3 +61,32 @@ button {
     justify-content: center;
     transition: background .15s ease, transform .1s ease;
 }
+
+.tools{
+    display: flex;
+    gap: 20px;
+}
+
+.group{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.group-title{
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+select {
+    padding: 6px 30px 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
