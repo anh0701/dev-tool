@@ -33,8 +33,30 @@ button {
     padding: 8px 14px;
     margin-right: 8px;
     cursor: pointer;
+    background-color: aqua;
+    border-radius: 10px;
+    border: none;
 }
 
 .section {
     margin-top: 20px;
+    margin-right: 20px;
+}
+
+.delimiter {
+    color: aquamarine;
+}
+
+.file-btn {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: none;
+    background: #3a3a3a;
+    color: #eee;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s ease, transform .1s ease;
 }

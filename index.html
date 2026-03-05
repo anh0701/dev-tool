@@ -11,12 +11,16 @@
 <body>
     <div class="container">
         <h1>Dev Tool</h1>
-        <div class="toolbar"> <input type="file" id="fileInput">
+        <div class="toolbar"> 
+            <label class="file-btn">
+                Open file 
+               <input type="file" id="fileInput" hidden="">
+            </label>
             <button onclick="clearInput()">Clear</button>
         </div>
         <div class="section">
             <b>INPUT</b>
-            <textarea id="input" placeholder="paste csv here"></textarea>
+            <textarea id="input" placeholder="Paste csv here"></textarea>
         </div>
         <div class="section">
             <label>Delimiter:</label>
