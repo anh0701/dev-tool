@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dev Tool</h1>
+        <div class="toolbar"> <input type="file" id="fileInput">
+            <button onclick="clearInput()">Clear</button>
+        </div>
+        <div class="section">
+            <b>INPUT</b>
+            <textarea id="input" placeholder="paste csv here"></textarea>
+        </div>
+        <div class="section">
+            <label>Delimiter:</label>
+            <select id="delimiter">
+                <option value="auto">Auto Detect</option>
+                <option value=",">Comma (,)</option>
+                <option value=";">Semicolon (;)</option>
+                <option value="\t">Tab</option>
+                <option value="space">Space</option>
+            </select>
+        </div>
+        <div class="section">
+            <button onclick="convert()">CSV → JSON</button>
+            <button onclick="csvToMarkdown()">CSV → Markdown</button>
+        </div>
+        <div class="section">
+            <b>OUTPUT</b>
+            <textarea id="output"></textarea>
+        </div>
+        <div class="section">
+            <button onclick="copyOutput()">Copy</button>
+            <button onclick="download()">Download File</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
