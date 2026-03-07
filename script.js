@@ -1,15 +1,15 @@
-document.getElementById("fileInput").addEventListener("change", function (e) {
-    const file = e.target.files[0]
-    if (!file) return
+// document.getElementById("fileInput").addEventListener("change", function (e) {
+//     const file = e.target.files[0]
+//     if (!file) return
 
-    const reader = new FileReader()
+//     const reader = new FileReader()
 
-    reader.onload = function (event) {
-        document.getElementById("input").value = event.target.result
-    }
+//     reader.onload = function (event) {
+//         document.getElementById("input").value = event.target.result
+//     }
 
-    reader.readAsText(file)
-})
+//     reader.readAsText(file)
+// })
 
 
 function clearInput() {

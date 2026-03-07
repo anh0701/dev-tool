@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSV to Markdown Converter Online</title>
+
+    <meta name="description"
+        content="Convert CSV to Markdown  instantly with this free online CSV to Markdown converter.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+
+            <div class="logo"><a href="/">DevTools</a></div>
+
+            <nav class="menu">
+                <a href="/">Home</a>
+                <a href="/csv-to-json.html">CSV → JSON</a>
+                <a href="/json-pretty.html">JSON Pretty</a>
+                <a href="/csv-to-markdown.html">CSV → Markdown</a>
+                <a href="/json-to-string.html">JSON → String</a>
+                <a href="/string-to-json.html">String → JSON</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="container">
+
+        <h1>CSV to Markdown Converter</h1>
+
+        <textarea id="input" placeholder="Paste CSV here"></textarea>
+        <div class="toolbar">
+
+            <label>Delimiter</label>
+
+            <select id="delimiter">
+                <option value="auto">Auto Detect</option>
+                <option value=",">Comma (,)</option>
+                <option value=";">Semicolon (;)</option>
+                <option value="\t">Tab</option>
+                <option value="space">Space</option>
+            </select>
+
+            <button onclick="csvToMarkdown()">CSV → Markdown</button>
+        </div>
+
+        <textarea id="output"></textarea>
+
+    </main>
+
+    <article class="seo">
+
+        <h2>Convert CSV to Markdown Online</h2>
+
+        <p>
+            This free CSV to Markdown converter allows you to convert CSV data into Markdown instantly.
+            Simply paste your CSV data into the input field and click convert.
+        </p>
+
+        <h2>What is CSV?</h2>
+
+        <p>
+            CSV (Comma Separated Values) is commonly used to store tabular data.
+        </p>
+
+        <h2>What is Markdown?</h2>
+
+        <p>
+            Markdown is a lightweight, easy-to-read markup language that uses simple keyboard symbols (like
+            * or #) to format plain text.
+        </p>
+
+    </article>
+
+    <footer class="footer">
+
+        <p>© DevTools</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

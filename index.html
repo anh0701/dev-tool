@@ -2,60 +2,81 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Tool</title>
+
+    <title>Free Developer Tools</title>
+
+    <meta name="description"
+        content="Collection of free developer tools including CSV to JSON, JSON formatter, Base64 encode and more.">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <div class="container">
-        <h1>Dev Tool</h1>
-        <div class="toolbar"> 
-            <label class="file-btn">
-                Open file 
-               <input type="file" id="fileInput" hidden="">
-            </label>
-            <button onclick="clearInput()">Clear</button>
-        </div>
-        <div class="section">
-            <b>INPUT</b>
-            <textarea id="input" placeholder="Paste here"></textarea>
-        </div>
-        <div class="section tools">
-            
-            <div class="group">
-                <span class="group-title">CSV</span>
-                <label>Delimiter:</label>
-                <select id="delimiter">
-                    <option value="auto">Auto Detect</option>
-                    <option value=",">Comma (,)</option>
-                    <option value=";">Semicolon (;)</option>
-                    <option value="\t">Tab</option>
-                    <option value="space">Space</option>
-                </select>
-                <button onclick="convert()">CSV → JSON</button>
-                <button onclick="csvToMarkdown()">CSV → Markdown</button>
-            </div>
 
-            <div class="group">
-                <span class="group-title">JSON</span>
-                <button onclick="jsonToString()">JSON → String</button>
-                <button onclick="jsonPretty()">JSON → Pretty</button>
-                <button onclick="stringToJson()">String → JSON</button>
-            </div>
+    <header class="header">
+        <div class="nav-container">
+
+            <div class="logo"><a href="/">DevTools</a></div>
+
+            <nav class="menu">
+                <a href="/">Home</a>
+                <a href="/csv-to-json.html">CSV → JSON</a>
+                <a href="/json-pretty.html">JSON Pretty</a>
+                <a href="/csv-to-markdown.html">CSV → Markdown</a>
+                <a href="/json-to-string.html">JSON → String</a>
+                <a href="/string-to-json.html">String → JSON</a>
+            </nav>
 
         </div>
-        <div class="section">
-            <b>OUTPUT</b>
-            <textarea id="output" readonly></textarea>
+    </header>
+
+    <main class="container">
+
+        <h1>Free Developer Tools</h1>
+
+        <p>Useful tools for developers.</p>
+
+        <div class="tool-list">
+
+            <div class="tool-card">
+                <a href="csv-to-json.html">CSV → JSON</a>
+                <p>Convert CSV data to JSON format.</p>
+            </div>
+
+            <div class="tool-card">
+                <a href="json-pretty.html">JSON Pretty</a>
+                <p>Format and beautify JSON data.</p>
+            </div>
+
+            <div class="tool-card">
+                <a href="csv-to-markdown.html">CSV → Markdown</a>
+                <p>Convert CSV table to Markdown table.</p>
+            </div>
+
+            <div class="tool-card">
+                <a href="json-to-string.html">JSON → String</a>
+                <p>Convert JSON to escaped string.</p>
+            </div>
+
+            <div class="tool-card">
+                <a href="string-to-json.html">String → JSON</a>
+                <p>Parse JSON string to JSON object.</p>
+            </div>
+
         </div>
-        <div class="section">
-            <button onclick="copyOutput()">Copy</button>
-            <button onclick="download()">Download File</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+
+    </main>
+
+    <footer class="footer">
+
+        <p>© DevTools</p>
+
+    </footer>
+
 </body>
 
 </html>
