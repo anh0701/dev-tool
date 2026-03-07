@@ -56,7 +56,6 @@ function detectDelimiter(line) {
     candidates.forEach(c => {
 
         const matches = line.match(c.regex)
-
         const count = matches ? matches.length : 0
 
         if (count > max) {
@@ -69,7 +68,34 @@ function detectDelimiter(line) {
     return best
 }
 
+function parseCSVLine(line, delimiter = ",") {
 
+    const result = []
+    let current = ""
+    let inQuotes = false
+
+    for (let i = 0; i < line.length; i++) {
+
+        const char = line[i]
+
+        if (char === '"') {
+            if (inQuotes && line[i + 1] === '"') {
+                current += '"'
+                i++
+            } else {
+                inQuotes = !inQuotes
+            }
+        } else if (char === delimiter && !inQuotes) {
+            result.push(current)
+            current = ""
+        } else {
+            current += char
+        }
+    }
+
+    result.push(current)
+    return result.map(v => v.trim())
+}
 
 function parseCSV(text) {
 
@@ -78,14 +104,11 @@ function parseCSV(text) {
         .split(/\r?\n/)
         .filter(line => line.trim() !== "")
 
-
     let delimiter = document.getElementById("delimiter").value
-
 
     if (delimiter === "auto") {
         delimiter = detectDelimiter(lines[0])
     }
-
 
     if (delimiter === "space") {
         return lines.map(line =>
@@ -93,18 +116,15 @@ function parseCSV(text) {
         )
     }
 
-
     if (delimiter === "\\t" || delimiter === "\t") {
         return lines.map(line =>
             line.split(/\t/).map(v => v.trim())
         )
     }
 
-
     return lines.map(line =>
-        line.split(delimiter).map(v => v.trim())
+        parseCSVLine(line, delimiter)
     )
-
 }
 
 
@@ -154,7 +174,6 @@ function convert() {
         })
 
         return obj
-
     })
 
     document.getElementById("output").value =
