@@ -133,23 +133,28 @@ function csvToMarkdown() {
 
     const text = document.getElementById("input").value
 
-    if (!text) return
-
-    const rows = parseCSV(text)
-
-    const headers = rows[0]
-
-    let md = ""
-
-    md += "| " + headers.join(" | ") + " |\n"
-
-    md += "| " + headers.map(() => "---").join(" | ") + " |\n"
-
-    rows.slice(1).forEach(row => {
-        md += "| " + row.join(" | ") + " |\n"
-    })
-
-    document.getElementById("output").value = md
+    try {
+        
+        if (!text) return
+    
+        const rows = parseCSV(text)
+    
+        const headers = rows[0]
+    
+        let md = ""
+    
+        md += "| " + headers.join(" | ") + " |\n"
+    
+        md += "| " + headers.map(() => "---").join(" | ") + " |\n"
+    
+        rows.slice(1).forEach(row => {
+            md += "| " + row.join(" | ") + " |\n"
+        })
+    
+        document.getElementById("output").value = md
+    } catch (error) {
+        alert("Invalid CSV")
+    }
 
 }
 
@@ -159,25 +164,30 @@ function convert() {
 
     const text = document.getElementById("input").value.trim()
 
-    if (!text) return
-
-    const rows = parseCSV(text)
-
-    const headers = rows[0]
-
-    const result = rows.slice(1).map(row => {
-
-        const obj = {}
-
-        headers.forEach((h, i) => {
-            obj[h] = row[i] ?? ""
+    try {
+        if (!text) return
+    
+        const rows = parseCSV(text)
+    
+        const headers = rows[0]
+    
+        const result = rows.slice(1).map(row => {
+    
+            const obj = {}
+    
+            headers.forEach((h, i) => {
+                obj[h] = row[i] ?? ""
+            })
+    
+            return obj
         })
-
-        return obj
-    })
-
-    document.getElementById("output").value =
-        JSON.stringify(result, null, 2)
+    
+        document.getElementById("output").value =
+            JSON.stringify(result, null, 2)
+        
+    } catch (error) {
+        alert("Invalid CSV")
+    }
 
 }
 
