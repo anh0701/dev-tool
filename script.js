@@ -135,7 +135,7 @@ function csvToMarkdown() {
 
     try {
         
-        if (!text) return
+        // if (!text) return
     
         const rows = parseCSV(text)
     
@@ -165,7 +165,7 @@ function convert() {
     const text = document.getElementById("input").value.trim()
 
     try {
-        if (!text) return
+        // if (!text) return
     
         const rows = parseCSV(text)
     
