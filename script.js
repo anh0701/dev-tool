@@ -229,3 +229,25 @@ function stringToJson() {
         alert("Invalid JSON String")
     }
 }
+
+function copyOutput() {
+    const output = document.getElementById("output");
+
+    if (!output.value) {
+        return;
+    }
+
+    navigator.clipboard.writeText(output.value)
+        .then(() => {
+            const button = document.querySelector(".copy-btn");
+
+            button.textContent = "Copied!";
+
+            setTimeout(() => {
+                button.textContent = "Copy";
+            }, 1500);
+        })
+        .catch(() => {
+            alert("Failed to copy output.");
+        });
+}
