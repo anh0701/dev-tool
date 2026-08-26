@@ -19,9 +19,15 @@
     <header class="header">
         <div class="nav-container">
 
-            <div class="logo"><a href="./">DevTools</a></div>
+            <div class="logo">
+                <a href="./">DevTools</a>
+            </div>
 
-            <nav class="menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                ☰
+            </button>
+
+            <nav class="menu" id="menu">
                 <a href="./">Home</a>
                 <a href="csv-to-json.html">CSV → JSON</a>
                 <a href="json-pretty.html">JSON Pretty</a>
@@ -78,6 +84,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="nav-bar.js"></script>
 
 </body>
 

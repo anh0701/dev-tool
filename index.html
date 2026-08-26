@@ -20,9 +20,15 @@
     <header class="header">
         <div class="nav-container">
 
-            <div class="logo"><a href="./">DevTools</a></div>
+            <div class="logo">
+                <a href="./">DevTools</a>
+            </div>
 
-            <nav class="menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                ☰
+            </button>
+
+            <nav class="menu" id="menu">
                 <a href="./">Home</a>
                 <a href="csv-to-json.html">CSV → JSON</a>
                 <a href="json-pretty.html">JSON Pretty</a>
@@ -42,30 +48,30 @@
 
         <div class="tool-list">
 
-            <div class="tool-card">
-                <a href="csv-to-json.html">CSV → JSON</a>
+            <a class="tool-card" href="csv-to-json.html">
+                <div class="tool-title">CSV → JSON</div>
                 <p>Convert CSV data to JSON format.</p>
-            </div>
+            </a>
 
-            <div class="tool-card">
-                <a href="json-pretty.html">JSON Pretty</a>
+            <a class="tool-card" href="json-pretty.html">
+                <div class="tool-title">JSON Pretty</div>
                 <p>Format and beautify JSON data.</p>
-            </div>
+            </a>
 
-            <div class="tool-card">
-                <a href="csv-to-markdown.html">CSV → Markdown</a>
+            <a class="tool-card" href="csv-to-markdown.html">
+                <div class="tool-title">CSV → Markdown</div>
                 <p>Convert CSV table to Markdown table.</p>
-            </div>
+            </a>
 
-            <div class="tool-card">
-                <a href="json-to-string.html">JSON → String</a>
+            <a class="tool-card" href="json-to-string.html">
+                <div class="tool-title">JSON → String</div>
                 <p>Convert JSON to escaped string.</p>
-            </div>
+            </a>
 
-            <div class="tool-card">
-                <a href="string-to-json.html">String → JSON</a>
+            <a class="tool-card" href="string-to-json.html">
+                <div class="tool-title">String → JSON</div>
                 <p>Parse JSON string to JSON object.</p>
-            </div>
+            </a>
 
         </div>
 
@@ -76,6 +82,8 @@
         <p>© DevTools</p>
 
     </footer>
+
+    <script src="nav-bar.js"></script>
 
 </body>
 
